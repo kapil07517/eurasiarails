@@ -10,7 +10,7 @@ class FacebooksController < ApplicationController
       sign_in(:user, user, :bypass => true)
       redirect_to root_path
     else
-      user = User.new(:email => auth["extra"]["raw_info"]["email"],:provider => auth["provider"],:uid => auth["uid"],:token => auth["credentials"]["token"],:secret =>auth['credentials']['secret'])
+      user = User.new(:email => auth["extra"]["raw_info"]["email"],:provider => auth["provider"],:uid => auth["uid"],:token => auth["credentials"]["token"],:secret =>auth['credentials']['secret'],:picture => auth["info"]["image"])
       user.save(:validate => false)
       sign_in(:user, user, :bypass => true)
       redirect_to edit_setting_path(user)

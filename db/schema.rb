@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140421170240) do
     t.string   "uid"
     t.string   "secret"
     t.string   "token"
+    t.string   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

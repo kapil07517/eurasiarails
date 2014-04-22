@@ -40,6 +40,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :uid
       t.string :secret
       t.string :token
+      t.string :picture
 
 
       t.timestamps

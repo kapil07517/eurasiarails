@@ -46,13 +46,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Eurasiarails</a>
+          <a class="brand" href="/">Eurasiarails</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav" style="float: right;">
               <% if !current_user %>
                 <li><%= link_to "Register with Facebook", "/auth/facebook"  %></li>
+                <li><%= link_to "Sign In with Facebook", "/auth/facebook"  %></li>
               <% else %>
-                <li><%= link_to "Log Out", destroy_user_session_path,:method => :delete %></li>
+                <li><div class="btn-group">
+                    <button class="btn"><%= current_user.email.split("@")[0] %></button>
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to "edit",edit_setting_path(current_user) %></li>
+                      <li><%= link_to "profile",setting_path(current_user) %></li>
+                      <li><%= link_to "Log Out", destroy_user_session_path,:method => :delete %></li>
+                    </ul>
+                </li>
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->
